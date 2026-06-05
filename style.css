@@ -1,0 +1,106 @@
+/* p{
+    font-size:xx-large;
+    font-weight:bolder;
+} */
+h1{
+    padding: 20px;
+    border: 20px solid green;
+    margin: 20px;
+}
+video{
+    width: 500px;
+
+}
+.imgvideo{
+    background-color: aquamarine;
+    padding:50px;
+}
+
+#p1{
+    font-size:medium;
+    font-weight:bold
+}
+nav{
+    display:flex;
+    flex-direction: row;
+    gap: 20px;
+}
+ol{
+    list-style-type: upper-roman;
+}
+ul{
+    list-style-type: none;
+}
+table,td,th{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th{
+    background-color: beige;
+}
+td{
+    background-color:goldenrod;
+}
+button{
+    background-color: coral;
+    border-radius: 300px;
+    margin: 20px;
+}
+button:hover{
+    background-color: chartreuse;
+}
+h1:hover{
+    color: blue;
+    padding: 200px;
+}
+form{
+    height:300px;
+    width: 50%;
+    background-color: bisque;
+    padding:20px;
+    margin: 20px;
+    border-radius: 30px;
+}
+
+.grid{
+    display: grid;
+    width:15%;
+    grid-template-columns:33% 33%;
+  
+}
+#one{
+   
+    background-color: aqua;
+    height:15px;
+    
+}
+#two{
+    
+     background-color: beige;
+      height:15px;
+}
+#three{
+    
+     background-color: black;
+      height:15px;
+}
+#four{
+    
+     background-color: blueviolet;
+      height:15px;
+}
+#five{
+    
+     background-color: blanchedalmond;
+      height:15px;
+}
+#six{
+     
+     background-color: brown;
+      height:15px;
+}
+.dog{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    
+}
