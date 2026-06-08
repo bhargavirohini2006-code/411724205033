@@ -8,11 +8,12 @@ h1{
     margin: 20px;
 }
 video{
-    width: 500px;
+    height:auto;
+    width: 100%;
 
 }
 .imgvideo{
-    background-color: aquamarine;
+    background-color: rgb(47, 72, 64);
     padding:50px;
 }
 
@@ -62,10 +63,10 @@ form{
     border-radius: 30px;
 }
 
-.grid{
+  .grid{
     display: grid;
     width:15%;
-    grid-template-columns:33% 33%;
+    grid-template-columns:33% 33% 33%;  
   
 }
 #one{
@@ -104,3 +105,33 @@ form{
     grid-template-columns: 50% 50%;
     
 }
+img{
+    height:500px;
+    width: 500px;
+    background-color: rgb(217, 38, 80);
+    padding: 100px;
+}
+/* @media (max-width: 600px){
+    img{
+        height: 100%;
+        width: 100%; 
+}*/
+   @media (min-width: 1024px){
+     nav{
+        display:flex;
+        flex-direction: row;
+        gap:50px;
+     }
+      .grid{
+        display: grid;
+        width:100%;
+        grid-template-columns:(1fr,3); 
+   } 
+  
+     nav{
+        display:flex;
+        flex-direction: column;
+        gap:50px;
+     }
+   } 
+      
