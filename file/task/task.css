@@ -1,0 +1,109 @@
+body{
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+nav{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+nav a{
+    text-decoration: none;
+    background-color: lightgray;
+    color: black;
+    padding: 10px;
+}
+
+
+@media(min-width:768px){
+
+    nav{
+        flex-direction: row;
+        gap: 20px;
+    }
+
+}
+
+
+
+h1{
+    text-align: center;
+}
+
+
+
+img{
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
+    
+   
+}
+
+
+
+video{
+    width: 50vw;
+    padding: 10px;
+    background-color: blue;
+    display: block;
+}
+
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table,
+th,
+td{
+    border: 1px solid black;
+}
+
+
+td{
+    padding: 10px;
+    text-align: center;
+}
+
+
+
+button{
+    border: none;
+    padding: 10px 20px;
+    background-color: blue;
+    color: white;
+    margin: 20px;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: darkblue;
+}
+
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 10px;
+}
+
+.grid div{
+    border: 1px solid black;
+    padding: 20px;
+    text-align: center;
+}
+
+
+
+@media(max-width:767px){
+
+    .grid{
+        grid-template-columns: repeat(2,1fr);
+    }
+
+}

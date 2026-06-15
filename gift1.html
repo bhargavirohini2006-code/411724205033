@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gift For My Best Friend ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Comic Sans MS', cursive;
+}
+
+body{
+    height:100vh;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(-45deg,#ff9a9e,#fad0c4,#ffd1ff,#c2e9fb);
+    background-size:400% 400%;
+    animation:bgMove 10s ease infinite;
+}
+
+@keyframes bgMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+/* Stars */
+.star{
+    position:absolute;
+    width:4px;
+    height:4px;
+    background:white;
+    border-radius:50%;
+    animation:twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle{
+    from{opacity:.3;}
+    to{opacity:1;}
+}
+
+/* Container */
+.container{
+    position:relative;
+    text-align:center;
+    z-index:10;
+}
+
+/* Gift Box */
+.gift{
+    position:relative;
+    width:220px;
+    height:220px;
+    margin:auto;
+    cursor:pointer;
+}
+
+.box{
+    position:absolute;
+    bottom:0;
+    width:220px;
+    height:160px;
+    background:#ff5c8d;
+    border-radius:15px;
+    box-shadow:0 10px 30px rgba(0,0,0,.2);
+}
+
+.lid{
+    position:absolute;
+    top:25px;
+    left:-10px;
+    width:240px;
+    height:55px;
+    background:#ff85a2;
+    border-radius:15px;
+    transform-origin:left center;
+    transition:1.5s;
+}
+
+.ribbonV{
+    position:absolute;
+    left:95px;
+    width:30px;
+    height:220px;
+    background:gold;
+}
+
+.ribbonH{
+    position:absolute;
+    top:80px;
+    left:-10px;
+    width:240px;
+    height:25px;
+    background:gold;
+}
+
+.open .lid{
+    transform:rotate(-130deg);
+}
+
+/* Hide gift parts after opening */
+.disappear{
+    opacity:0;
+    transform:translateY(150px) scale(0.4);
+    transition:1.2s ease;
+}
+
+/* Card */
+.card{
+    position:absolute;
+    width:420px;
+    padding:30px;
+    background:white;
+    border-radius:25px;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,100px) scale(0);
+    transition:1.3s;
+    box-shadow:0 15px 35px rgba(0,0,0,.2);
+}
+
+.open .card{
+    transform:translate(-50%,-250px) scale(1);
+}
+
+.card h2{
+    color:#ff4f7b;
+    margin-bottom:15px;
+    min-height:40px;
+}
+
+.card p{
+    color:#555;
+    font-size:18px;
+    line-height:1.7;
+    min-height:100px;
+}
+
+.teddy{
+    font-size:75px;
+    animation:bounce 2s infinite;
+}
+
+@keyframes bounce{
+    50%{
+        transform:translateY(-10px);
+    }
+}
+
+/* Floating Hearts */
+.heart{
+    position:absolute;
+    font-size:25px;
+    animation:floatUp 6s linear forwards;
+}
+
+@keyframes floatUp{
+    0%{
+        transform:translateY(0) scale(.5);
+        opacity:1;
+    }
+    100%{
+        transform:translateY(-100vh) scale(1.5);
+        opacity:0;
+    }
+}
+
+/* Confetti */
+.confetti{
+    position:absolute;
+    width:12px;
+    height:12px;
+    animation:fall 4s linear forwards;
+}
+
+@keyframes fall{
+    0%{
+        transform:translateY(-100px) rotate(0deg);
+    }
+    100%{
+        transform:translateY(100vh) rotate(720deg);
+        opacity:0;
+    }
+}
+
+.clickText{
+    margin-top:25px;
+    color:white;
+    font-size:22px;
+    font-weight:bold;
+    text-shadow:0 0 10px rgba(255,255,255,.8);
+    animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+    50%{
+        transform:scale(1.08);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="gift" id="gift" onclick="openGift()">
+
+        <!-- Message Card -->
+        <div class="card">
+            <div class="teddy">🧸</div>
+
+            <h2 id="title"></h2>
+
+            <p id="message"></p>
+        </div>
+
+        <!-- Gift Box -->
+        <div class="lid" id="lid"></div>
+
+        <div class="box" id="box">
+            <div class="ribbonV"></div>
+        </div>
+
+        <div class="ribbonH" id="ribbon"></div>
+
+    </div>
+
+    <div class="clickText">
+        🎁 Click The Gift 🎁
+    </div>
+
+</div>
+
+<script>
+
+// Create twinkling stars
+for(let i=0;i<120;i++){
+    let star=document.createElement("div");
+    star.className="star";
+
+    star.style.left=Math.random()*100+"vw";
+    star.style.top=Math.random()*100+"vh";
+    star.style.animationDelay=Math.random()*2+"s";
+
+    document.body.appendChild(star);
+}
+
+// Typewriter Effect
+function typeWriter(text,id,speed){
+
+    let i=0;
+    let element=document.getElementById(id);
+
+    function typing(){
+        if(i<text.length){
+            element.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(typing,speed);
+        }
+    }
+
+    typing();
+}
+
+function openGift(){
+
+    const gift=document.getElementById("gift");
+
+    if(gift.classList.contains("open")) return;
+
+    gift.classList.add("open");
+
+    // Title
+    typeWriter(
+        "💖 Dear Bestie 💖",
+        "title",
+        80
+    );
+
+    // Message
+    setTimeout(()=>{
+        typeWriter(
+            "Thank you for being the sunshine in my cloudy days, the laughter in my boring moments, and the friend who always stays. 🌸✨💕",
+            "message",
+            35
+        );
+    },1200);
+
+    // Confetti
+    createConfetti();
+
+    // Make gift box disappear
+    setTimeout(()=>{
+        document.getElementById("lid").classList.add("disappear");
+        document.getElementById("box").classList.add("disappear");
+        document.getElementById("ribbon").classList.add("disappear");
+    },1800);
+
+    // Hide click text
+    document.querySelector(".clickText").style.display="none";
+}
+
+// Floating Hearts
+function createHeart(){
+
+    const emojis=["💖","💕","💗","💞","🌸","✨"];
+
+    let heart=document.createElement("div");
+
+    heart.className="heart";
+    heart.innerHTML=
+    emojis[Math.floor(Math.random()*emojis.length)];
+
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.bottom="-20px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },6000);
+}
+
+setInterval(createHeart,250);
+
+// Confetti
+function createConfetti(){
+
+    const colors=[
+        "#ff4d6d",
+        "#ffd60a",
+        "#4cc9f0",
+        "#80ed99",
+        "#ff99c8"
+    ];
+
+    for(let i=0;i<180;i++){
+
+        let confetti=document.createElement("div");
+
+        confetti.className="confetti";
+
+        confetti.style.left=Math.random()*100+"vw";
+        confetti.style.background=
+        colors[Math.floor(Math.random()*colors.length)];
+
+        document.body.appendChild(confetti);
+
+        setTimeout(()=>{
+            confetti.remove();
+        },4000);
+    }
+}
+
+</script>
+
+</body>
+</html>
